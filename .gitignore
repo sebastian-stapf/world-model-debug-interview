@@ -8,9 +8,9 @@ __pycache__/
 .env
 outputs/
 checkpoints/
-data/*.npz
-!data/tiny_pong.npz
-!data/heldout_pong.npz
+task_2/hands_on/data/*.npz
+!task_2/hands_on/data/tiny_pong.npz
+!task_2/hands_on/data/heldout_pong.npz
 interviewer/
 *.tar.gz
 *.zip

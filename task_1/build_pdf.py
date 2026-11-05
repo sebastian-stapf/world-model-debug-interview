@@ -1,4 +1,4 @@
-"""Build the candidate handout: python -m scripts.build_task1_pdf.
+"""Build the candidate handout: python task_1/build_pdf.py.
 
 Requires ReportLab (an optional authoring dependency, not needed by candidates).
 Uses standard PDF fonts so no platform-specific font files are required.
@@ -14,8 +14,8 @@ from reportlab.pdfgen import canvas
 from reportlab.platypus import Paragraph, Table, TableStyle
 
 
-ROOT = Path(__file__).resolve().parents[1]
-OUTPUT = ROOT / "output/pdf/task-1-few-shot-classification.pdf"
+ROOT = Path(__file__).resolve().parent
+OUTPUT = ROOT / "few-shot-classification.pdf"
 INK = colors.HexColor("#17323C")
 TEAL = colors.HexColor("#087F8C")
 MUTED = colors.HexColor("#506671")

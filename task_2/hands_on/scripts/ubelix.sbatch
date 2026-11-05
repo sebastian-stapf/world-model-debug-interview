@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Submit from the repository root after creating an environment on UBELIX.
+# Submit from task_2/hands_on/ after creating an environment on UBELIX.
 # Override the GPU type/account on the sbatch command line when appropriate.
 #SBATCH --job-name=world-model-interview
 #SBATCH --partition=gpu

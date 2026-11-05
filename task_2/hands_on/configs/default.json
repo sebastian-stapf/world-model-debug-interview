@@ -1,0 +1,13 @@
+{
+  "seed": 17,
+  "batch_size": 64,
+  "steps": 6000,
+  "learning_rate": 0.0003,
+  "validation_fraction": 0.2,
+  "width": 32,
+  "log_every": 100,
+  "eval_every": 500,
+  "ode_steps": 32,
+  "horizon": 12,
+  "num_workers": 0
+}

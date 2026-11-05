@@ -1,4 +1,4 @@
-"""Task 1 starter. Read task1_few_shot.md or the PDF for the full prompt."""
+"""Task 1 starter. Read README.md or the PDF for the full prompt."""
 
 
 def matching_loss(

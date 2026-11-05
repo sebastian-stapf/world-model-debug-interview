@@ -2,8 +2,8 @@
 
 **Python / PyTorch coding exercise | Suggested time: 35-45 minutes**
 
-[Download the candidate handout (PDF)](../output/pdf/task-1-few-shot-classification.pdf)
-or start in [`task1_matching.py`](task1_matching.py).
+[Download the candidate handout (PDF)](few-shot-classification.pdf)
+or start in [`matching.py`](matching.py).
 
 Implement a few-shot classifier that uses attention over labelled support
 examples to classify queries. This exercise focuses on indexing, matrix
@@ -63,3 +63,7 @@ Keep the loss differentiable with respect to both embedding tensors.
 
 Be ready to explain your tensor shapes, numerical choices, time and space
 complexity, and the tests you would use. No training or dataset download is needed.
+
+Use the PyTorch environment from [Task 2B](../task_2/hands_on/README.md#run-locally),
+or an existing PyTorch environment. To rebuild the handout, install ReportLab and
+run `python task_1/build_pdf.py` from the repository root.
