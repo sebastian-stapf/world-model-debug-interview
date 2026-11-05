@@ -1,0 +1,32 @@
+{
+  "config": {
+    "seed": 17,
+    "batch_size": 64,
+    "steps": 6000,
+    "learning_rate": 0.0003,
+    "validation_fraction": 0.2,
+    "width": 32,
+    "log_every": 100,
+    "eval_every": 500,
+    "ode_steps": 32,
+    "horizon": 12,
+    "num_workers": 0
+  },
+  "device": "cuda",
+  "gpu": "NVIDIA GeForce RTX 4090",
+  "python": "3.11.7",
+  "torch": "2.8.0+cu126",
+  "numpy": "1.26.4",
+  "data_sha256": "5c03fa09977ebdc73beb6181eac96743dc21d18a219e442ee89ef89ac84f5b32",
+  "source_sha256": {
+    "__init__.py": "fb6f6397f681b88fdd4ea12482bb57e3a4e1a22d294a992f2f6e9401f067969d",
+    "dataloader.py": "7baff5a1ccfd66ecf55038b923d532face7ffd295ea32e26eadff4629c164722",
+    "dataset.py": "c64dae278be1eb18827991866a8e105b6abf009321c9e0fe9eb6d816f0bcff3b",
+    "environment.py": "9d3126a850b0aec54c7d5561c7a586be150c3f619ad369842cbdb4c785d18758",
+    "eval.py": "26ca05ba0fed48c2a5434a81ac0cbc8dfda1b9f76c250f2188f3c686b78ac744",
+    "model.py": "649a51bfa2d55d87654e43a77d0dcb95c19ffb0f3db8af4694c7295fc2d9d5dd",
+    "sampling.py": "9810f0a7829f32d282d1427461cbae04c99295e1269ebe8af25fb6531f5beed7",
+    "trainer.py": "e10ae9db535c422821c151ee3d60f74c713a53798fac9127900e60ab1a6abc8b",
+    "utils.py": "44b7fc744f5b3a849ee87fc4cd0a230eebb0c7de40ccb4295bf8ed4d779553c0"
+  }
+}

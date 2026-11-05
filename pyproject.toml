@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "world-model-debug-interview"
+version = "0.1.0"
+description = "A PhD interview exercise: debug an action-conditioned flow-matching world model"
+requires-python = ">=3.10"
+dependencies = ["torch>=2.4,<3", "numpy>=1.26,<3", "Pillow>=10,<13", "matplotlib>=3.8,<4"]
+
+[project.optional-dependencies]
+dev = ["pytest>=8,<10"]
+
+[tool.setuptools.packages.find]
+include = ["world_model*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]

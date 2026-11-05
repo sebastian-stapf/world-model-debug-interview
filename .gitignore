@@ -1,0 +1,16 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.venv/
+*.egg-info/
+.DS_Store
+.env
+outputs/
+checkpoints/
+data/*.npz
+!data/tiny_pong.npz
+!data/heldout_pong.npz
+interviewer/
+*.tar.gz
+*.zip

@@ -1,0 +1,8 @@
+# Primary package versions used for the published UBELIX run.
+# On UBELIX, torch was installed from the official cu126 wheel index.
+# The full Linux environment freeze is included in the checkpoint release.
+torch==2.8.0
+numpy==1.26.4
+Pillow==12.1.1
+matplotlib==3.10.8
+pytest==8.4.2

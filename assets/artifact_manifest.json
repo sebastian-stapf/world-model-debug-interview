@@ -1,0 +1,12 @@
+{
+  "assets/diagnostics.png": "0f443fa833d64ffabaa646fc964b788dffa358a6cc8c7c9a0f33001fc5a0a404",
+  "assets/generations.png": "80455cd0926facf72d00a602728262094053e28a43df5895c0e921ace3ed6c78",
+  "assets/history.json": "7255e5d088dc2d381d414bf6ac0440bb68e1bf00873e6611de95a7705a5c758e",
+  "assets/metrics.json": "34a37d82ebe0ccf6a982e7087fd380258ad2affd5fb7b6db7da4f87a9ace4528",
+  "assets/provenance.json": "090bccab3f4623db960847480cc5a6376d55fc0f372d5f34d77dcc79536a88d8",
+  "assets/rollout.gif": "369608bf2ce3f186513af006e147d7d5dd613e7d4b1ac4df212750a7fe49e0b8",
+  "assets/training_summary.json": "a9628e909e53dd1988a7ccc2d08a3e833fe36e26282055b7f5c46586edc8d634",
+  "assets/transitions.png": "f1281a13a5cc24ffe1cf3b62f50a136e1995818d7599d9bee9f87818dbad4e74",
+  "data/heldout_pong.npz": "824fc972d11ddbb312c448d81a6f8cfb34c7fb634de7dfd8dbfae3092f7dd164",
+  "data/tiny_pong.npz": "5c03fa09977ebdc73beb6181eac96743dc21d18a219e442ee89ef89ac84f5b32"
+}
