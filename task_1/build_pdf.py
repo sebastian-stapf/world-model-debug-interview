@@ -60,7 +60,7 @@ def main():
     pdf.setFont("Helvetica-Bold", 8.5)
     pdf.drawString(LEFT, 798, "PHD CODING INTERVIEW  /  TASK 01")
     pdf.setFont("Helvetica", 8.5)
-    pdf.drawRightString(PAGE_W - LEFT, 798, "PYTHON + PYTORCH  |  35-45 MIN")
+    pdf.drawRightString(PAGE_W - LEFT, 798, "PYTHON + PYTORCH")
     pdf.setFillColor(INK)
     pdf.setFont("Helvetica-Bold", 27)
     pdf.drawString(LEFT, 761, "Few-shot classification")

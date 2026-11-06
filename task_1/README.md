@@ -1,6 +1,6 @@
 # Task 1 · Few-shot classification
 
-**35–45 minutes · Python / PyTorch**
+**Python / PyTorch**
 
 Implement [`matching_loss` in `matching.py`](matching.py). For each query,
 attend to labelled support examples and return **`(loss, predictions)`**:

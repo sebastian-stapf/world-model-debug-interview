@@ -6,7 +6,6 @@ The model trains, but its predictions are poor. Find **five bugs**, one each in
 
 | | [2A · Read-only](read_only/) | [2B · Hands-on](hands_on/) |
 | --- | --- | --- |
-| Time | 60–75 min | 90 min |
 | Work | Browse source and saved evidence; no code execution | Run targeted checks, edit code and test |
 | Submit | Locations, reasoning, proposed fixes and verification plans | Locations, reasoning, implemented fixes and regression tests |
 | Setup | GitHub or a text viewer | Python/PyTorch; CPU is sufficient |

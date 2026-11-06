@@ -1,6 +1,6 @@
 # Task 2B · Hands-on debugging
 
-**90 minutes · Python / PyTorch · Run code, edit and test**
+**Python / PyTorch · Run code, edit and test**
 
 The world model trains without crashing and its loss falls, but its generated
 trajectories are poor. Find **five semantic bugs**, one in each file below.
@@ -68,7 +68,6 @@ supporting infrastructure. The five bugs are confined to the table's modules.
 See [EVIDENCE.md](EVIDENCE.md) for measurements, conventions and additional images.
 [Optional reproduction commands and UBELIX setup](REPRODUCE.md) are available if needed.
 
-Spend roughly 10 minutes orienting, 60 minutes investigating and fixing, and
-20 minutes testing and discussing. Present the cause, fix and regression test
+Present the cause, fix and regression test
 for each finding, including any remaining uncertainty. Well-supported partial
 progress is useful.

@@ -1,6 +1,6 @@
 # Task 2A · Read-only debugging
 
-**60–75 minutes · Independent review · Do not run code**
+**Independent review · Do not run code**
 
 The world model trains without crashing and its loss falls, but its generated
 trajectories are poor. Find **five semantic bugs**, one in each file below.
@@ -56,6 +56,5 @@ The five bugs are confined to the table's modules.
 All observations, measurement conventions and additional images are in
 [EVIDENCE.md](EVIDENCE.md). Everything needed is included in this folder.
 
-Spend roughly 45–60 minutes investigating and 15 minutes discussing findings.
 Distinguish what the source proves from what you infer. Explain which symptoms
 each fix addresses and how you would verify it; a working patch is not required.

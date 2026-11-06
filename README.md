@@ -3,11 +3,11 @@
 Implement a few-shot classifier, then debug a small PyTorch world model.
 **For Task 2, complete only the format assigned by your interviewer.**
 
-| Task | What you do | Time |
-| --- | --- | --- |
-| [1 · Few-shot classification](task_1/) | Implement `matching_loss`; explain and test it | 35–45 min |
-| [2A · Read-only debugging](task_2/read_only/) | Browse code and evidence; propose fixes without running code | 60–75 min |
-| [2B · Hands-on debugging](task_2/hands_on/) | Find five bugs, implement fixes and add tests | 90 min |
+| Task | What you do |
+| --- | --- |
+| [1 · Few-shot classification](task_1/) | Implement `matching_loss`; explain and test it |
+| [2A · Read-only debugging](task_2/read_only/) | Browse code and evidence; propose fixes without running code |
+| [2B · Hands-on debugging](task_2/hands_on/) | Find five bugs, implement fixes and add tests |
 
 ## Where to start
 
