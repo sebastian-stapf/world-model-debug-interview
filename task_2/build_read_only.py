@@ -36,9 +36,13 @@ def main():
     sources += [SOURCE / "scripts" / name for name in ["diagnose.py", "make_data.py"]]
     for path in sources:
         original = path.relative_to(SOURCE)
-        destination = DESTINATION / "source" / (str(original) + ".txt")
+        destination = DESTINATION / "source" / original
+        legacy = destination.with_suffix(".py.txt")
+        if legacy.exists() and digest(legacy) != digest(path):
+            raise RuntimeError(f"Legacy source has local changes: {legacy}")
         destination.parent.mkdir(parents=True, exist_ok=True)
         shutil.copyfile(path, destination)
+        legacy.unlink(missing_ok=True)
         origins[str(destination.relative_to(DESTINATION))] = str(original)
     (DESTINATION / "evidence").mkdir(exist_ok=True)
     for name in EVIDENCE:
@@ -46,6 +50,15 @@ def main():
         origins["evidence/" + name] = "assets/" + name
     shutil.copyfile(SOURCE / "configs/default.json", DESTINATION / "config.json")
     origins["config.json"] = "configs/default.json"
+    shutil.copyfile(SOURCE / "SPEC.md", DESTINATION / "SPEC.md")
+    origins["SPEC.md"] = "SPEC.md"
+    # The same evidence guide, with paths relative to the offline pack.
+    evidence_guide = (SOURCE / "EVIDENCE.md").read_text().replace("assets/", "evidence/")
+    evidence_guide = evidence_guide.replace(
+        "See [`reports/RUN.md`](reports/RUN.md) for provenance.",
+        "See [provenance.json](evidence/provenance.json) for provenance.",
+    )
+    (DESTINATION / "EVIDENCE.md").write_text(evidence_guide)
 
     archive_path = SOURCE / "data/tiny_pong.npz"
     with np.load(archive_path, allow_pickle=False) as archive:
@@ -68,19 +81,23 @@ Consecutive rows let you inspect the recorded motion without loading an archive.
     excerpt += "The contact sheet in the prompt shows dataset-loaded transitions; this table\ncontains the raw logged observations and actions. No model prediction is used.\n\n"
     excerpt += f"Archive SHA-256: `{digest(archive_path)}`\n"
     (DESTINATION / "evidence/episode_excerpt.md").write_text(excerpt)
-    files = sorted(p for p in DESTINATION.rglob("*") if p.is_file() and p.name != "MANIFEST.json")
+    files = sorted(
+        p for p in DESTINATION.rglob("*")
+        if p.is_file() and p.name not in {"MANIFEST.json", ".DS_Store"}
+        and "__pycache__" not in p.parts and p.suffix != ".pyc"
+    )
     manifest = {
         "description": "Static candidate pack; copied from task_2/hands_on with no corrections.",
         "origins": origins,
+        "derived_from": {"EVIDENCE.md": "EVIDENCE.md (local links adjusted)"},
         "files": {str(p.relative_to(DESTINATION)): digest(p) for p in files},
     }
     (DESTINATION / "MANIFEST.json").write_text(json.dumps(manifest, indent=2) + "\n")
     output = TASK.parent / "outputs/task-2-read-only.zip"
     output.parent.mkdir(exist_ok=True)
     with zipfile.ZipFile(output, "w", compression=zipfile.ZIP_DEFLATED) as bundle:
-        for path in sorted(DESTINATION.rglob("*")):
-            if path.is_file():
-                bundle.write(path, Path("read_only") / path.relative_to(DESTINATION))
+        for path in sorted(files + [DESTINATION / "MANIFEST.json"]):
+            bundle.write(path, Path("read_only") / path.relative_to(DESTINATION))
     print(f"Refreshed {DESTINATION} and {output}")
 
 

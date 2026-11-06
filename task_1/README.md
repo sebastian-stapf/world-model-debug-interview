@@ -1,69 +1,41 @@
-# Task 1 - Few-shot classification as attention over a support set
+# Task 1 · Few-shot classification
 
-**Python / PyTorch coding exercise | Suggested time: 35-45 minutes**
+**35–45 minutes · Python / PyTorch**
 
-[Download the candidate handout (PDF)](few-shot-classification.pdf)
-or start in [`matching.py`](matching.py).
+Implement [`matching_loss` in `matching.py`](matching.py). For each query,
+attend to labelled support examples and return **`(loss, predictions)`**:
+a scalar mean negative log-likelihood and a `LongTensor[N_q]` of class predictions.
+[Printable prompt (PDF)](few-shot-classification.pdf).
 
-Implement a few-shot classifier that uses attention over labelled support
-examples to classify queries. This exercise focuses on indexing, matrix
-operations, numerical stability, and algorithmic reasoning.
+## Inputs
 
-## Episode inputs
+| Argument | Shape / meaning |
+| --- | --- |
+| `support_embeddings` | Float tensor `[N_s, D]` |
+| `support_labels` | Long tensor `[N_s]`; class IDs in `[0, C)` |
+| `query_embeddings` | Float tensor `[N_q, D]` |
+| `query_labels` | Long tensor `[N_q]`; target class IDs |
+| `num_classes` | Integer `C` |
+| `temperature` | Positive float; default `0.1` |
 
-| Input | Shape / type | Meaning |
-| --- | --- | --- |
-| `support_embeddings` | Float tensor `[N_s, D]` | Support feature vectors |
-| `support_labels` | Long tensor `[N_s]` | Support class IDs in `[0, C)` |
-| `query_embeddings` | Float tensor `[N_q, D]` | Query feature vectors |
-| `query_labels` | Long tensor `[N_q]` | Query target class IDs in `[0, C)` |
-| `num_classes` | Integer `C` | Total number of classes |
-| `temperature` | Float, default `0.1` | Positive attention temperature |
+## Required computation
 
-## For every query
+1. Compute cosine similarity from each query to every support example.
+2. Divide by `temperature`, then softmax **over support examples**.
+3. Sum attention weights by support class to obtain class probabilities.
+4. Return the mean NLL of the query targets and the highest-probability classes.
 
-1. Compute cosine similarity to every support example.
-2. Divide similarities by `temperature`.
-3. Apply softmax over the support examples.
-4. Obtain class probabilities by summing the attention weights of support
-   examples belonging to each class.
-5. Return the mean negative log-likelihood of the query labels and the predicted
-   classes.
+Use vectorized, numerically stable PyTorch operations. Keep the loss differentiable
+with respect to both embedding tensors. Treat zero embeddings as zero normalized vectors.
+Support labels may be unsorted, and class counts may differ.
 
-## Implement
+Assume valid inputs: nonempty sets, positive `D` and `C`, finite embeddings of the
+same floating dtype, tensors on the same device, valid `int64` labels, and finite
+positive temperature. Every query target appears in the support set; other classes
+may be absent and receive zero probability. Input validation is not required.
 
-```python
-def matching_loss(
-    support_embeddings,
-    support_labels,
-    query_embeddings,
-    query_labels,
-    num_classes,
-    temperature=0.1,
-):
-    ...
-```
+## Deliverable
 
-Return `(loss, predictions)`: a scalar mean negative log-likelihood and a
-`LongTensor[N_q]` containing the highest-probability class for each query.
-Keep the loss differentiable with respect to both embedding tensors.
-
-## Requirements and assumptions
-
-- Do not assume examples are grouped by class or that classes have equal
-  numbers of support examples.
-- Use vectorized PyTorch operations and numerically stable computations.
-  Treat a zero embedding as a zero normalized vector.
-- Assume non-empty support and query sets, a shared positive embedding dimension,
-  finite floating-point embeddings of the same dtype, tensors on the same
-  device, valid `int64` labels, `num_classes > 0`, and a finite positive
-  temperature. You do not need to implement input validation.
-- Every query's target class occurs in the support set. Other classes may be
-  absent; they receive zero probability.
-
-Be ready to explain your tensor shapes, numerical choices, time and space
-complexity, and the tests you would use. No training or dataset download is needed.
-
-Use the PyTorch environment from [Task 2B](../task_2/hands_on/README.md#run-locally),
-or an existing PyTorch environment. To rebuild the handout, install ReportLab and
-run `python task_1/build_pdf.py` from the repository root.
+Your implementation and a few focused tests. Explain tensor shapes, numerical
+choices, and time/space complexity. No training or data download is needed.
+Use an existing PyTorch environment or the [Task 2B setup](../task_2/hands_on/README.md#run-locally).

@@ -8,8 +8,8 @@ datasets created for this exercise, with no third-party game assets or ROMs.
 
 Each archive contains `frames` (`uint8`), `actions` (`int64`) and `seed`.
 For the raw archives, `frames[e,t+1] = step(frames[e,t], actions[e,t])`, with
-the simulator's motion state inferred from consecutive frames. See the main
-README for precise shapes and action conventions. The raw collector is trusted;
+the simulator's motion state inferred from consecutive frames. See the [model and data contract](../SPEC.md)
+for precise shapes and action conventions. The raw collector is trusted;
 the path from stored trajectories to training examples is part of the exercise.
 
 Both archives can be regenerated from their seeds. NumPy's ZIP metadata can

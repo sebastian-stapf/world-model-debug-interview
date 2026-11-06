@@ -1,26 +1,18 @@
-# Task 2 - World-model debugging
+# Task 2 · World-model debugging
 
-Choose **one** format. Both use the same candidate code, five intentional bugs,
-data contract and recorded experiment. They are alternatives, not two additional
-tasks to complete in sequence.
+The model trains, but its predictions are poor. Find **five bugs**, one each in
+`dataset.py`, `dataloader.py`, `model.py`, `trainer.py` and `eval.py`.
+**Complete one format, as assigned by your interviewer.**
 
-| | [2A: Read-only](read_only/) | [2B: Hands-on](hands_on/) |
+| | [2A · Read-only](read_only/) | [2B · Hands-on](hands_on/) |
 | --- | --- | --- |
-| Working style | Browse independently, take notes, then discuss findings | Inspect, run experiments, edit and test |
-| Code execution | Not allowed | Allowed and expected for small targeted checks |
-| Environment | GitHub or a text viewer | Python/PyTorch environment; CPU is sufficient |
-| Evidence | Supplied figures, metrics, source listings and a raw-data excerpt | Same recorded evidence plus runnable code and datasets |
-| Deliverable | Cited diagnosis, proposed edits and an analytical justification | Diagnosis, implemented fixes and regression tests |
-| Suggested time | 60-75 minutes, including a final discussion | 90 minutes |
+| Time | 60–75 min | 90 min |
+| Work | Browse source and saved evidence; no code execution | Run targeted checks, edit code and test |
+| Submit | Locations, reasoning, proposed fixes and verification plans | Locations, reasoning, implemented fixes and regression tests |
+| Setup | GitHub or a text viewer | Python/PyTorch; CPU is sufficient |
 
-Start at the chosen folder's README. A read-only candidate can use just the
-`read_only/` folder, including an offline copy, without opening the runnable
-project. For the hands-on format, run commands from `task_2/hands_on/`.
+Both folders contain the same candidate source and recorded experiment.
+Open the chosen folder's README to begin; retraining is not required.
 
-An [offline read-only ZIP](https://github.com/sebastian-stapf/world-model-debug-interview/releases/download/v1.2-interview/task-2-read-only.zip)
-contains the same browsing folder, including all source listings and evidence.
-
-The read-only source listings and evidence are copies of the hands-on candidate
-files. Maintainers can refresh this pack with `python task_2/build_read_only.py`
-from the repository root. This packaging command is for interview preparation;
-it is not part of the read-only candidate's task.
+[Offline read-only ZIP](https://github.com/sebastian-stapf/world-model-debug-interview/releases/download/v1.2-interview/task-2-read-only.zip)
+· [Maintainer notes](MAINTAINING.md)
