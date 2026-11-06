@@ -7,6 +7,8 @@ attend to labelled support examples and return **`(loss, predictions)`**:
 a scalar mean negative log-likelihood and a `LongTensor[N_q]` of class predictions.
 [Printable prompt (PDF)](few-shot-classification.pdf).
 
+![Task 1 explained: labelled support examples, query embeddings, attention over support examples, and the required loss and predictions](assets/few-shot-classification-explained.png)
+
 ## Inputs
 
 | Argument | Shape / meaning |
